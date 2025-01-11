@@ -25,6 +25,9 @@ Here's a list of the projects currently in this repository:
 5. **Tailwind CSS**
    - A project integrating Tailwind CSS with React for modern, responsive UI design.
 
+6. **React Router**
+   - A project for learning react routing and stuff.
+
 ## 🎯 Goals
 
 - Build hands-on experience with React features like hooks, props, state, and context.
@@ -37,6 +40,7 @@ Here's a list of the projects currently in this repository:
 - **JavaScript**: Programming language for functionality.
 - **CSS/Tailwind CSS**: For styling and responsive design.
 - **APIs**: For fetching and displaying dynamic data.
+- **React Router**: For routing
 
 ## 📖 How to Use
 
