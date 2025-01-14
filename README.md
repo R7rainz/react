@@ -27,6 +27,15 @@ Here's a list of the projects currently in this repository:
 
 6. **React Router**
    - A project for learning react routing and stuff.
+     
+7. **ContextAPI**
+   - Project for learning and understanding the concept of Context API
+
+8. **Context API with Local Storage Todo List App**
+   - Project for revision of context api and learning the concept of Local Storage and creating a basic todo list app
+  
+9. **ReduxToolKil-Todo**
+    - A Todo list project build using Redux toolkit 
 
 ## 🎯 Goals
 
