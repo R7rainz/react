@@ -55,5 +55,5 @@ export class AuthService {
 
 const authService = new AuthService(); //created an object using this we can access the methods or functions from the above class universily 
 
-export default AuthService;
+export default authService;
 
