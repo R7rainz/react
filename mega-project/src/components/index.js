@@ -5,6 +5,9 @@ import Logo from "./Logo.jsx";
 import LogoutBtn from "./Header/LogoutBtn.jsx"
 import Button from './Button.jsx'
 import PostCard from './PostCard.jsx'
+import Signup from './Signup.jsx'
+import RTE from './RTE.jsx'
+import Login from './Login.jsx'
 
 export {
   Header,
@@ -13,5 +16,8 @@ export {
   Logo,
   LogoutBtn,
   Button,
-  PostCard
+  PostCard,
+  Signup,
+  RTE,
+  Login
 }
