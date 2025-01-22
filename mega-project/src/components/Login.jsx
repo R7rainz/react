@@ -7,7 +7,7 @@ import authService from '../appwrite/auth'
 import { useForm } from 'react-hook-form'
 
 
-function Login() {
+export function Login() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { register, handleSubmit } = useForm();
@@ -74,4 +74,4 @@ function Login() {
   )
 }
 
-export default Login
+//export default Login

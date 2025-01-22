@@ -2,11 +2,12 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
+import { RouterProvider } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import store from './store/store.js'
 import { createBrowserRouter } from 'react-router-dom'
 import { AuthLayout } from './components/index.js'
-import {Home, Login, Signup, AllPosts, EditPost, Post} from './pages/' 
+import { Home, Login, Signup, AllPosts, EditPost, Post } from './pages/'
 
 const router = createBrowserRouter([
   {
@@ -63,7 +64,11 @@ const router = createBrowserRouter([
       element: <Post />,
     }]
   }
-])
+], {
+  future: {
+    v7_relativeSplatPath: true,
+  }
+})
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -72,3 +77,4 @@ createRoot(document.getElementById('root')).render(
     </Provider>
   </StrictMode>,
 )
+
