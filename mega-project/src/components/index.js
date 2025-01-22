@@ -9,7 +9,9 @@ import Signup from './Signup.jsx'
 import RTE from './RTE.jsx'
 import Login from './Login.jsx'
 import AuthLayout from './AuthLayout.jsx'
-
+import Input from './Input.jsx'
+import Select from './Select.jsx'
+import PostForm from './post-form/PostForm.jsx'
 export {
   Header,
   Footer,
@@ -21,5 +23,8 @@ export {
   Signup,
   RTE,
   Login,
-  AuthLayout
+  AuthLayout,
+  Input,
+  Select,
+  PostForm
 }
