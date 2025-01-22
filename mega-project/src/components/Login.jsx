@@ -36,7 +36,7 @@ function Login() {
         </div>
         <h2 className='text-center text-2xl font-bold leading-tight'>Sign in to your Account</h2>
         <p className='mt-2 text-center text-base text-black/60'>
-          Don&apos;t have my account ?&nbsp; <!-- here the &apos; is the HTML entity for a single quotation mark -->
+          Don&apos;t have my account ?&nbsp;
           <Link
             to="/signup"
             className='font-medium text-primary transition-all duration-200 hover:undeline'>
