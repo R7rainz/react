@@ -8,6 +8,7 @@ import PostCard from './PostCard.jsx'
 import Signup from './Signup.jsx'
 import RTE from './RTE.jsx'
 import Login from './Login.jsx'
+import AuthLayout from './AuthLayout.jsx'
 
 export {
   Header,
@@ -19,5 +20,6 @@ export {
   PostCard,
   Signup,
   RTE,
-  Login
+  Login,
+  AuthLayout
 }
