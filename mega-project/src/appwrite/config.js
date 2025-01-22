@@ -1,5 +1,5 @@
 import conf from '../config/conf.js'
-import { Client, ID, Storage, Query, Databases, unique } from "appwrite"
+import { Client, ID, Storage, Query, Databases } from "appwrite"
 
 export class Service {
   client = new Client();
@@ -65,26 +65,26 @@ export class Service {
     }
   }
 
-  async getPost(slug){
-    try{
-        return await this.databases.getDocument(
-            conf.appwriteDatabaseId,
-            conf.appwriteCollectionId, 
-            slug
-        )
-    }catch(error){
+  async getPost(slug) {
+    try {
+      return await this.databases.getDocument(
+        conf.appwriteDatabaseId,
+        conf.appwriteCollectionId,
+        slug
+      )
+    } catch (error) {
       console.log("Appwrite service :: getPost Error", error)
     }
   }
 
-  async getPosts(queries = [Query.equal("status", "active")]){
-    try{
-        return await this.databases.listDocuments(
-            conf.appwriteDatabaseId,
-            conf.appwriteCollectionId,
-            queries,
-        )
-    }catch(error){
+  async getPosts(queries = [Query.equal("status", "active")]) {
+    try {
+      return await this.databases.listDocuments(
+        conf.appwriteDatabaseId,
+        conf.appwriteCollectionId,
+        queries,
+      )
+    } catch (error) {
       console.log("Appwrite service :: getPosts Error", error)
       return false;
     }
@@ -92,36 +92,36 @@ export class Service {
 
 
   //file upload services 
-  async uploadFile(file){
-    try{
-        return await this.bucket.createFile(
-            conf.appwriteBucketId,
-            ID,unique(),
-            file
-        )
-    }catch(error){
+  async uploadFile(file) {
+    try {
+      return await this.bucket.createFile(
+        conf.appwriteBucketId,
+        ID.unique(),
+        file
+      )
+    } catch (error) {
       console.log("Appwrite service :: uploadFile Error", error)
       return false;
     }
 
   }
 
-  async deleteFile(fileId){
-    try{
-        return await this.bucket.deleteFile(
-            conf.appwriteBucketId,
-            fileId
-        )
-    }catch(error){
+  async deleteFile(fileId) {
+    try {
+      return await this.bucket.deleteFile(
+        conf.appwriteBucketId,
+        fileId
+      )
+    } catch (error) {
       console.log("Appwrite service :: deleteFile Error", error)
       return false;
     }
   }
 
-  getFilePreview(fileId){  //without async function because in the docs there was no promise declared for this :w
+  getFilePreview(fileId) {  //without async function because in the docs there was no promise declared for this :w
     return this.bucket.getFilePreview(
-        conf.appwriteBucketId,
-        fileId
+      conf.appwriteBucketId,
+      fileId
     )
   }
 }
