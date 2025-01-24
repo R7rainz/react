@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 
-function PostForm(post) {
+export default function PostForm(post) {
     const { register, handleSubmit, watch, setValue, control, getValues } = useForm({
         defaultValues: {
             title: post?.title || '',
@@ -118,4 +118,3 @@ function PostForm(post) {
     );
 }
 
-export default PostForm;
