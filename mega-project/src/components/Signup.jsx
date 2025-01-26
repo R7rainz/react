@@ -16,13 +16,17 @@ function Signup() {
   const createAccount = async (data) => {
     setError("");
     try {
+      console.log("Submitting form", data);
       const userData = await authService.createAccount(data);
+      console.log("User data:", userData);
       if (userData) {
-        const userData = await authService.getCurrentUser();
-        if (userData) dispatch(login(userData));
+        const currentUser = await authService.getCurrentUser();
+        console.log("Current User: ", currentUser)
+        if (currentUser) dispatch(login(currentUser));
         navigate("/");  //navigating to home after we found the userdata
       }
     } catch (error) {
+      console.log("Error during account creation", error);
       setError(error.message)
     }
   }
