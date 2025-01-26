@@ -3,6 +3,7 @@ import conf from "../config/conf.js";
 
 export class AuthService {
     client = new Client();
+    account;
 
     constructor() {
         this.client
@@ -37,7 +38,6 @@ export class AuthService {
     async getCurrentUser() {
         try {
             await this.account.get();
-            return user;
         } catch (error) {
             console.log("Appwrite service :: getCurrentUser Error", error);
         }
@@ -57,4 +57,5 @@ export class AuthService {
 const authService = new AuthService(); //created an object using this we can access the methods or functions from the above class universily 
 
 export default authService;
+
 

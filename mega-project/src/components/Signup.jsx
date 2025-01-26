@@ -11,7 +11,7 @@ function Signup() {
   const navigate = useNavigate();
   const [error, setError] = useState("");
   const dispatch = useDispatch();
-  const { register, handleSumbit } = useForm();
+  const { register, handleSubmit } = useForm();
 
   const createAccount = async (data) => {
     setError("");
@@ -42,7 +42,7 @@ function Signup() {
             className='font-medium text-primary transition-all duration-200 hover:underline'>Sign In</Link>
         </p>
         {error && <p className='text-red-600 mt-8 text-center'>{error}</p>}
-        <form onSubmit={handleSumbit(create)}>
+        <form onSubmit={handleSubmit(createAccount)}>
           <div className='space-y-5'>
             <Input
               label="Full Name: "
