@@ -3,7 +3,7 @@ import service from '../appwrite/config'
 import { Button, Container } from '../components'
 import { useNavigate, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { parse } from 'postcss';
+import parse from "html-react-parser"
 import { Link } from 'react-router-dom';
 
 export default function Post() {
