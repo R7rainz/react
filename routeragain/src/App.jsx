@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <div>
-        <h1>hi there how are you doing</h1>
+        <h1 className='text-bold text-amber-200 bg-gray-300'>hi there how are you doing</h1>
       </div>
     </>
   )
