@@ -71,8 +71,8 @@ export default function Footer() {
         <div className="sm:flex sm:items-center sm:justify-between">
           <span className="text-sm sm:text-center">
             © 2023
-            <a href="https://hiteshchoudhary.com/" className="hover:underline hover:text-indigo-200 ml-1">
-              hiteshchoudhary
+            <a href="https://bento.me/rainz/" className="hover:underline hover:text-indigo-200 ml-1">
+              ronakkamboj
             </a>
             . All Rights Reserved.
           </span>
