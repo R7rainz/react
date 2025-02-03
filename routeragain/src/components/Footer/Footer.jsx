@@ -24,7 +24,7 @@ export default function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/about" className="hover:underline hover:text-indigo-200">
+                  <Link to="/testing" className="hover:underline hover:text-indigo-200">
                     About
                   </Link>
                 </li>
