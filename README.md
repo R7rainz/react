@@ -35,7 +35,9 @@ Here's a list of the projects currently in this repository:
    - Project for revision of context api and learning the concept of Local Storage and creating a basic todo list app
   
 9. **ReduxToolKil-Todo**
-    - A Todo list project build using Redux toolkit 
+    - A Todo list project build using Redux toolkit
+10. **Blog app**
+    - A blog app implementing all the concepts learnt on the way
 
 ## 🎯 Goals
 
