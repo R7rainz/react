@@ -1,4 +1,5 @@
-import express, { RequestHandler } from 'express';
+import express from 'express';
+import { Request, Response } from 'express';
 
 const app = express();
 
@@ -13,8 +14,8 @@ interface SearchQuery {
     search?: string;
 }
 
-// ✅ Use `RequestHandler` and explicitly return `void`
-const getProducts: RequestHandler<{}, Product[], {}, SearchQuery> = (req, res): void => {
+// Define the getProducts handler
+const getProducts = (req: Request<{}, {}, {}, SearchQuery>, res: Response<Product[]>): void => {
     console.log('Received request for /api/products');
 
     const products: Product[] = [
@@ -26,7 +27,7 @@ const getProducts: RequestHandler<{}, Product[], {}, SearchQuery> = (req, res): 
         const filteredProducts = products.filter(product =>
             product.name.toLowerCase().includes(req.query.search!.toLowerCase())
         );
-        res.json(filteredProducts); // ✅ No return statement needed
+        res.json(filteredProducts);
         return;
     }
 
@@ -35,7 +36,7 @@ const getProducts: RequestHandler<{}, Product[], {}, SearchQuery> = (req, res): 
     }, 3000);
 };
 
-// ✅ Correctly use the handler in `app.get()`
+// Use the handler in `app.get()`
 app.get('/api/products', getProducts);
 
 const port = process.env.PORT || 3000;
