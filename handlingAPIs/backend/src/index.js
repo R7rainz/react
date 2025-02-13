@@ -5,32 +5,25 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const app = (0, express_1.default)();
-app.get('/api/products', (req, res) => {
-    try {
-        const products = [
-            {
-                id: 1,
-                name: 'Laptop wood'
-            },
-            {
-                id: 2,
-                name: 'Mobile could'
-            }
-        ];
-        const searchQuery = req.query.search;
-        if (searchQuery && typeof searchQuery === 'string') {
-            const filteredProducts = products.filter(product => product.name.toLowerCase().includes(searchQuery.toLowerCase()));
-            return res.json(filteredProducts);
-        }
-        setTimeout(() => {
-            res.json(products);
-        }, 3000);
+// Define the getProducts handler
+const getProducts = (req, res) => {
+    console.log('Received request for /api/products');
+    const products = [
+        { id: 1, name: 'Laptop wood' },
+        { id: 2, name: 'Mobile could' }
+    ];
+    if (req.query.search) {
+        const filteredProducts = products.filter(product => product.name.toLowerCase().includes(req.query.search.toLowerCase()));
+        res.json(filteredProducts);
+        return;
     }
-    catch (error) {
-        res.status(500).json({ error: 'Internal server error' });
-    }
-});
-const port = process.env.PORT ? parseInt(process.env.PORT) : 3000;
+    setTimeout(() => {
+        res.json(products);
+    }, 3000);
+};
+// ✅ Attach the handler correctly
+app.get('/api/products', getProducts);
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });

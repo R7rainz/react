@@ -1,46 +1,47 @@
 import express, { Request, Response } from 'express';
 
+const app = express();
+
 // Define the Product interface
 interface Product {
     id: number;
     name: string;
 }
 
-const app = express();
+// Define query interface
+interface SearchQuery {
+    search?: string;
+}
 
-app.get('/api/products', (req: Request, res: Response) => {
-    try {
-        const products: Product[] = [
-            {
-                id: 1,
-                name: 'Laptop wood'
-            },
-            {
-                id: 2,
-                name: 'Mobile could'
-            }
-        ];
+// Define the getProducts handler
+const getProducts = (
+    req: Request<{}, {}, {}, SearchQuery>,
+    res: Response<Product[]>
+): void => {
+    console.log('Received request for /api/products');
 
-        const searchQuery = req.query.search;
+    const products: Product[] = [
+        { id: 1, name: 'Laptop wood' },
+        { id: 2, name: 'Mobile could' }
+    ];
 
-        if (searchQuery && typeof searchQuery === 'string') {
-            const filteredProducts = products.filter(product => 
-                product.name.toLowerCase().includes(searchQuery.toLowerCase())
-            );
-            return res.json(filteredProducts);
-        }
-
-        setTimeout(() => {
-            res.json(products);
-        }, 3000);
-
-    } catch (error) {
-        res.status(500).json({ error: 'Internal server error' });
+    if (req.query.search) {
+        const filteredProducts = products.filter(product =>
+            product.name.toLowerCase().includes(req.query.search!.toLowerCase())
+        );
+        res.json(filteredProducts);
+        return;
     }
-});
 
-const port: number = process.env.PORT ? parseInt(process.env.PORT) : 3000;
+    setTimeout(() => {
+        res.json(products);
+    }, 3000);
+};
 
+// ✅ Attach the handler correctly
+app.get('/api/products', getProducts as unknown as express.RequestHandler);
+
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
