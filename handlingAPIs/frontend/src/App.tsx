@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <h1>Product List</h1>
-      <input type="text" placeholder="Search..." 
+      <input type="text" placeholder="Search..."
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
@@ -31,25 +31,25 @@ function CustomReactQuery(urlPath: string) {
 
   useEffect(() => {
     const controller = new AbortController()
-    ;(async () => {
-      try {
-        setLoading(true)
-        setError(false)
-        const response = await axios.get(urlPath+search, {
-          signal: controller.signal
-        })
-        console.log(response.data)
-        setProducts(response.data)
-        setLoading(false)
-      } catch (error) {
-        if(axios.isCancel(error)) {
-          console.log('Request Cancelled', error.message)
-          return
+      ; (async () => {
+        try {
+          setLoading(true)
+          setError(false)
+          const response = await axios.get(urlPath + search, {
+            signal: controller.signal
+          })
+          console.log(response.data)
+          setProducts(response.data)
+          setLoading(false)
+        } catch (error) {
+          if (axios.isCancel(error)) {
+            console.log('Request Cancelled', error.message)
+            return
+          }
+          setError(true)
+          setLoading(false)
         }
-        setError(true)
-        setLoading(false)
-      }
-    })()
+      })()
 
     //cleanup code
     return () => {
